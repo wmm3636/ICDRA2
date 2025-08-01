@@ -1,0 +1,103 @@
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid()) @map("_id")
+  email     String   @unique
+  firstName String
+  lastName  String
+  userType  UserType @default(WHO)
+  address   Address
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model VerificationCode {
+  id        String   @id @default(uuid()) @map("_id")
+  userId    String
+  code      String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("verification_codes")
+}
+
+model Registration {
+  id                  String           @id @default(uuid()) @map("_id")
+  familyName          String
+  firstName           String
+  nationality         String
+  countryOfWork       String
+  cityProvince        String
+  jobTitle            String
+  companyOrganization String
+  organizationType    String
+  email               String
+  mobilePhone         String
+  phoneCountry        String
+  registrationType    RegistrationType
+  agreeCodeOfConduct  Boolean
+  decision            DecisionStatus   @default(PENDING)
+  decisionBy          String?
+  decisionAt          DateTime?
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+
+  @@map("registrations")
+}
+
+model ContactUs {
+  id        String          @id @default(uuid()) @map("_id")
+  name      String
+  email     String
+  subject   String
+  message   String
+  status    ContactUsStatus @default(NEW)
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@map("contact_requests")
+}
+
+type Address {
+  street  String
+  zip     String
+  city    String
+  state   String
+  country String
+}
+
+enum UserType {
+  ADMIN
+  INTERNAL
+  WHO
+}
+
+enum RegistrationType {
+  PRE_ICDRA_ONLY
+  PRE_ICDRA_AND_ICDRA_COMBINED
+  ICDRA_ONLY
+}
+
+enum DecisionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ContactUsStatus {
+  NEW
+  RESOLVED
+  WAITING_FOR_REPLY
+}
