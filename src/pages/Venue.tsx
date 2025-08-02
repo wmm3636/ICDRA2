@@ -101,18 +101,41 @@ const Venue = () => {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Location Map</CardTitle>
+            <h4 className="text-md font-medium text-gray-700 mt-1">
+              Crowne Plaza Riyadh RDC Hotel & Convention by IHG
+            </h4>
+            <p className="text-sm text-muted-foreground">
+              Wadi Al Muaydin Street, Unit 4, Imam Saud Ibn Abdul Aziz Road, Riyadh 12382
+            </p>
           </CardHeader>
           <CardContent>
-            <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-              <p className="text-gray-600">Interactive Map will be embedded here</p>
+            <div className="rounded-lg overflow-hidden h-64 w-full">
+              <iframe
+                title="Hotel Location Map"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                src="https://www.google.com/maps?q=Crowne+Plaza+Riyadh+Rdc+Hotel+%26+Convention+by+IHG&output=embed"
+              ></iframe>
             </div>
             <div className="mt-4 text-center">
-              <Button className="bg-blue-900 hover:bg-blue-800">
-                Open in Google Maps
+              <Button className="bg-blue-900 hover:bg-blue-800" asChild>
+                <a
+                  href="https://www.google.com/maps?q=Crowne+Plaza+Riyadh+Rdc+Hotel+%26+Convention+by+IHG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open in Google Maps
+                </a>
               </Button>
             </div>
           </CardContent>
         </Card>
+
+
+
 
         {/* Transportation */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
