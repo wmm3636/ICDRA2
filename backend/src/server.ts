@@ -12,7 +12,59 @@ const app = express();
 const PORT = process.env.PORT || 6001;
 
 // Middleware
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://fonts.googleapis.com",
+        "https://cdnjs.cloudflare.com"
+      ],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+        "https://cdnjs.cloudflare.com",
+        "https://maps.googleapis.com",
+        "https://www.google.com"
+      ],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https:",
+        "https://maps.googleapis.com",
+        "https://maps.gstatic.com",
+        "https://www.google.com"
+      ],
+      fontSrc: [
+        "'self'",
+        "https://fonts.gstatic.com",
+        "https://cdnjs.cloudflare.com",
+        "data:"
+      ],
+      connectSrc: [
+        "'self'",
+        "https://maps.googleapis.com",
+        "https://www.google.com"
+      ],
+      frameSrc: [
+        "'self'",
+        "https://www.google.com",
+        "https://maps.google.com",
+        "https://www.youtube.com",
+        "https://drive.google.com",
+        "https://docs.google.com"
+      ],
+      frameAncestors: ["'self'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: process.env.NODE_ENV === 'production' ? [] : null,
+    },
+  },
+  crossOriginEmbedderPolicy: false,
+}));
+
 app.use(compression());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:8080',
@@ -26,8 +78,8 @@ app.use('/api', routes);
 
 
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development'
   });
@@ -36,7 +88,7 @@ app.get('/health', (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../../dist')));
-  
+
 
   app.get(/^(?!\/api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../../dist/index.html'));
@@ -46,7 +98,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
-  res.status(500).json({ 
+  res.status(500).json({
     error: 'Something went wrong!',
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
   });
