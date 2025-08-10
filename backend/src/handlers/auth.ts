@@ -26,10 +26,10 @@ export const signIn = async (req: Request, res: Response) => {
     }
 
     const verificationCode = await VerificationService.createVerificationCode(user.id);
-    
+
     const emailSent = await sendMail({
       to: user.email,
-      subject: 'ICDRA 2025 - Verification Code',
+      subject: 'ICDRA 2026 - Verification Code',
       html: verificationCodeTemplate(verificationCode, user.firstName)
     });
 
@@ -67,10 +67,10 @@ export const verifyCode = async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign(
-      { 
-        userId: user.id, 
-        email: user.email, 
-        userType: user.userType 
+      {
+        userId: user.id,
+        email: user.email,
+        userType: user.userType
       },
       JWT_SECRET,
       { expiresIn: '8h' }

@@ -58,10 +58,10 @@ const Sidebar = ({ userType }: SidebarProps) => {
   return (
     <div className="w-64 bg-white border-r border-gray-200 h-full flex flex-col">
       <div className="p-6 border-b border-gray-200">
-        <h2 className="text-xl font-bold text-emerald-600">ICDRA 2025</h2>
+        <h2 className="text-xl font-bold text-emerald-600">ICDRA 2026</h2>
         <p className="text-sm text-gray-500">Portal</p>
       </div>
-      
+
       <nav className="flex-1 p-4 space-y-2">
         {menuItems
           .filter(item => item.visible)
@@ -87,7 +87,7 @@ const Sidebar = ({ userType }: SidebarProps) => {
             );
           })}
       </nav>
-      
+
       <div className="p-4 border-t border-gray-200">
         <Button
           onClick={handleSignOut}

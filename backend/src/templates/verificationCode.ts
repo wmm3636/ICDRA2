@@ -1,16 +1,16 @@
 export const verificationCodeTemplate = (code: string, firstName: string) => {
-  return `
+    return `
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Verification Code - ICDRA 2025</title>
+        <title>Verification Code - ICDRA 2026</title>
     </head>
     <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
         <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
             <div style="background-color: #2563eb; padding: 20px; text-align: center;">
-                <h1 style="color: #ffffff; margin: 0; font-size: 24px;">ICDRA 2025</h1>
+                <h1 style="color: #ffffff; margin: 0; font-size: 24px;">ICDRA 2026</h1>
                 <p style="color: #ffffff; margin: 5px 0 0 0;">International Conference of Drug Regulatory Authorities</p>
             </div>
             
@@ -18,7 +18,7 @@ export const verificationCodeTemplate = (code: string, firstName: string) => {
                 <h2 style="color: #333333; margin-bottom: 20px;">Hello ${firstName},</h2>
                 
                 <p style="color: #666666; line-height: 1.6; margin-bottom: 30px;">
-                    You requested to sign in to your ICDRA 2025 account. Please use the verification code below to complete your login:
+                    You requested to sign in to your ICDRA 2026 account. Please use the verification code below to complete your login:
                 </p>
                 
                 <div style="text-align: center; margin: 40px 0;">
@@ -37,7 +37,7 @@ export const verificationCodeTemplate = (code: string, firstName: string) => {
                 
                 <div style="border-top: 1px solid #e9ecef; padding-top: 20px; margin-top: 40px;">
                     <p style="color: #999999; font-size: 12px; line-height: 1.4;">
-                        This is an automated message from ICDRA 2025. Please do not reply to this email.
+                        This is an automated message from ICDRA 2026. Please do not reply to this email.
                     </p>
                 </div>
             </div>

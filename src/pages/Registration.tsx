@@ -156,7 +156,7 @@ const Registration = () => {
                 Registration Submitted Successfully!
               </h1>
               <p className="text-gray-600 mb-6">
-                Thank you for registering for ICDRA 2025. Your registration is now pending review.
+                Thank you for registering for ICDRA 2026. Your registration is now pending review.
                 You will receive a confirmation email shortly with further details.
               </p>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
@@ -180,7 +180,7 @@ const Registration = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            ICDRA 2025 Registration
+            ICDRA 2026 Registration
           </h1>
           <p className="text-lg text-gray-600">
             Please complete all fields to register for the conference

@@ -162,7 +162,7 @@ const Dashboard = () => {
             <div className="space-y-3">
               <div>
                 <label className="text-sm font-medium text-gray-500">Conference</label>
-                <p className="text-lg">ICDRA 2025</p>
+                <p className="text-lg">ICDRA 2026</p>
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-500">Location</label>
@@ -183,12 +183,12 @@ const Dashboard = () => {
                       </span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-emerald-600 h-2 rounded-full transition-all duration-300" 
-                        style={{ 
-                          width: `${registrationStats.total > 0 ? 
-                            (((registrationStats.stats.APPROVED || 0) + (registrationStats.stats.REJECTED || 0)) / registrationStats.total) * 100 
-                            : 0}%` 
+                      <div
+                        className="bg-emerald-600 h-2 rounded-full transition-all duration-300"
+                        style={{
+                          width: `${registrationStats.total > 0 ?
+                            (((registrationStats.stats.APPROVED || 0) + (registrationStats.stats.REJECTED || 0)) / registrationStats.total) * 100
+                            : 0}%`
                         }}
                       ></div>
                     </div>

@@ -19,7 +19,7 @@ export const changePassword = async (req: AuthenticatedRequest, res: Response) =
     }
 
     const user = await UserService.getUserWithPassword(req.user?.email || '');
-    
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -44,13 +44,13 @@ export const changePassword = async (req: AuthenticatedRequest, res: Response) =
 export const getCurrentUser = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const userId = req.user?.userId;
-    
+
     if (!userId) {
       return res.status(401).json({ error: 'User not authenticated' });
     }
 
     const user = await UserService.getUserById(userId);
-    
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -75,7 +75,7 @@ export const updateCurrentUser = async (req: AuthenticatedRequest, res: Response
     }
 
     const user = await UserService.updateUserById(userId, updateData);
-    
+
     res.json({
       success: true,
       message: 'Profile updated successfully',
@@ -92,9 +92,9 @@ export const updateCurrentUser = async (req: AuthenticatedRequest, res: Response
 export const getUserById = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { id } = req.params;
-    
+
     const user = await UserService.getUserById(id);
-    
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -112,9 +112,9 @@ export const getUserById = async (req: AuthenticatedRequest, res: Response) => {
 export const getUsers = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { search, userType } = req.query as { search?: string; userType?: UserType };
-    
+
     const users = await UserService.getAllUsersWithFilter(search, userType);
-    
+
     res.json({
       success: true,
       users,
@@ -143,7 +143,7 @@ export const createUser = async (req: AuthenticatedRequest, res: Response) => {
 
     await sendMail({
       to: user.email,
-      subject: 'Welcome to ICDRA 2025 - Account Created',
+      subject: 'Welcome to ICDRA 2026 - Account Created',
       html: welcomeEmailTemplate(firstName, email, tempPassword)
     });
 
@@ -175,7 +175,7 @@ export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
     const updateData = req.body;
 
     const user = await UserService.updateUserById(id, updateData);
-    
+
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -199,7 +199,7 @@ export const deleteUser = async (req: AuthenticatedRequest, res: Response) => {
     const { id } = req.params;
 
     const result = await UserService.deleteUserById(id);
-    
+
     res.json({
       success: true,
       message: 'User deleted successfully'

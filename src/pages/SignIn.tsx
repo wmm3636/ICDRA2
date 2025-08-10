@@ -74,10 +74,10 @@ const SignIn = () => {
 
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
-      
+
       toast({
         title: "Sign in successful",
-        description: "Welcome to ICDRA 2025!",
+        description: "Welcome to ICDRA 2026!",
       });
 
       navigate('/portal');
@@ -109,8 +109,8 @@ const SignIn = () => {
             {step === 'credentials' ? 'Sign In' : 'Verify Your Identity'}
           </CardTitle>
           <CardDescription>
-            {step === 'credentials' 
-              ? 'Enter your credentials to access ICDRA 2025'
+            {step === 'credentials'
+              ? 'Enter your credentials to access ICDRA 2026'
               : 'Enter the 6-digit code sent to your email'
             }
           </CardDescription>
