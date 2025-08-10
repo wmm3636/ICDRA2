@@ -16,9 +16,9 @@ const Venue = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-12">
           {/* Venue Information */}
-          <Card>
+          {/* <Card>
             <CardHeader>
               <CardTitle>King Abdulaziz International Conference Center</CardTitle>
             </CardHeader>
@@ -51,7 +51,7 @@ const Venue = () => {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Venue Features */}
           <Card>

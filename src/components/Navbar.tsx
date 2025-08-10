@@ -15,7 +15,7 @@ const Navbar = () => {
     { name: "Programme", path: "/programme" },
     { name: "Presentations", path: "/presentations" },
     { name: "Venue", path: "/venue" },
-    { name: "Accommodation", path: "/accommodation" },
+    // { name: "Accommodation", path: "/accommodation" },
     { name: "Travel", path: "/travel" },
     { name: "Visa", path: "/visa" },
     { name: "Tours", path: "/tours" },

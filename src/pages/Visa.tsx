@@ -40,13 +40,13 @@ const Visa = () => {
         </div>
 
         {/* Visa Support Alert */}
-        <Alert className="mb-8 border-green-200 bg-green-50">
+        {/* <Alert className="mb-8 border-green-200 bg-green-50">
           <CheckCircle className="h-4 w-4 text-green-600" />
           <AlertDescription className="text-green-800">
             <strong>Official Visa Support Available:</strong> ICDRA 2026 provides official invitation letters
             for registered participants to support your visa application.
           </AlertDescription>
-        </Alert>
+        </Alert> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
@@ -144,7 +144,7 @@ const Visa = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            {/* <Card>
               <CardHeader>
                 <CardTitle>Important Notes</CardTitle>
               </CardHeader>
@@ -164,7 +164,7 @@ const Visa = () => {
                   <p>• Business visas may require additional documentation from your employer</p>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
 
           {/* Sidebar */}

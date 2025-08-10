@@ -234,14 +234,14 @@ const Tours = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-2 pt-4">
+                  {/* <div className="flex gap-2 pt-4">
                     <Button className="flex-1 bg-blue-900 hover:bg-blue-800">
                       Book Now
                     </Button>
                     <Button variant="outline" className="flex-1">
                       More Details
                     </Button>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
             ))}
