@@ -1,5 +1,5 @@
 export const registrationApprovalEmailTemplate = (firstName: string, familyName: string, referenceNumber: string): string => {
-  return `
+    return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -86,9 +86,8 @@ export const registrationApprovalEmailTemplate = (firstName: string, familyName:
                 </div>
                 
                 <div class="barcode-section">
-                    <p><strong>${firstName.toLowerCase()}@xxxx.xx</strong></p>
-                    <div style="font-family: 'Courier New', monospace; font-size: 24px; letter-spacing: 2px; margin: 10px 0;">
-                        ||||| |||| | |||| |||| ||||| ||| |||||
+                    <p><strong>${firstName.toLowerCase()}</strong></p>
+                    <div style="font-family: 'Courier New', monospace; font-size: 24px; letter-spacing: 2px; margin: 10px 0;">                        
                     </div>
                 </div>
                 
@@ -96,13 +95,13 @@ export const registrationApprovalEmailTemplate = (firstName: string, familyName:
                 
                 <p>No changes to the registration are permitted.</p>
                 
-                <p>If you have any questions, please do not hesitate to contact the events team in the HPRA.</p>
+                <p>If you have any questions, please do not hesitate to contact the events team in the SFDA.</p>
                 
                 <div class="contact-info">
                     <p><strong>Kind regards</strong><br>
                     Saudi Food and Drug Authority (SFDA)</p>
                     
-                    <p><a href="mailto:icdra@sfda.gov.sa" style="color: #007bff;">icdra@sfda.gov.sa</a></p>
+                    <p><a href="mailto:icdra@sfda.gov.sa" style="color: #007bff;">icdra2026@sfda.gov.sa</a></p>
                 </div>
             </div>
             
