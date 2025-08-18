@@ -163,11 +163,11 @@ const Tours = () => {
             <p className="text-lg text-gray-600 mb-6">
               Discover the rich heritage, modern wonders, and cultural treasures of Saudi Arabia
             </p>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
+            {/* <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
               <p className="text-blue-800">
                 <strong>Early Bird Special:</strong> Book by September 1st and save 15% on all tours!
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Tours Grid */}

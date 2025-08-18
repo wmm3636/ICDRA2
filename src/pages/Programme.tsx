@@ -343,6 +343,9 @@ const Programme = () => {
           <p className="text-lg text-gray-600 mb-6">
             Five days of comprehensive sessions, workshops, and networking opportunities
           </p>
+          <p className="text-lg text-gray-600 mb-6">
+            The conference program is currently in progress, and the first draft will be uploaded to the website soon.
+          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button className="bg-blue-900 hover:bg-blue-800">

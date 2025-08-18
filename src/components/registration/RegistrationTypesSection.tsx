@@ -17,7 +17,7 @@ export const RegistrationTypesSection = ({ registrationType, onRegistrationTypeC
     {
       value: "icdra-only",
       title: "ICDRA only",
-      description: "For the same categories as the combined option, but for those attending only the ICDRA meeting."
+      description: "This registration is designated for representatives of regulatory authorities. By completing this registration, you will be granted access to the full conference, including both the PRE-ICDRA and the ICDRA Conference."
     }
   ];
 
