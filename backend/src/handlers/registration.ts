@@ -4,6 +4,8 @@ import { sendMail } from '../services/emailService';
 import { registrationConfirmationEmailTemplate } from '../templates/registrationConfirmationEmail';
 import { whoNotificationEmailTemplate } from '../templates/whoNotificationEmail';
 import { registrationApprovalEmailTemplate } from '../templates/registrationApprovalEmail';
+import { registrationApprovalIcdraOnlyEmailTemplate } from '../templates/registrationApprovalIcdraOnlyEmail';
+import { registrationApprovalPreIcdraOnlyEmailTemplate } from '../templates/registrationApprovalPreIcdraOnlyEmail';
 import { registrationRejectionEmailTemplate } from '../templates/registrationRejectionEmail';
 import { AuthenticatedRequest } from '../middleware/auth';
 import { RegistrationType, DecisionStatus } from '../types';
@@ -51,7 +53,7 @@ export const getRegistrationById = async (req: AuthenticatedRequest, res: Respon
 
 export const createRegistration = async (req: Request, res: Response) => {
   try {
-    const registrationData = req.body as any; // Type assertion to fix the ReadableStream issue
+    const registrationData = req.body as any;
 
     const registration = await RegistrationService.createRegistration(registrationData);
 
@@ -59,17 +61,26 @@ export const createRegistration = async (req: Request, res: Response) => {
     const approveUrl = `${baseUrl}/api/registrations/${registration.id}/decision?action=approve`;
     const rejectUrl = `${baseUrl}/api/registrations/${registration.id}/decision?action=reject`;
 
+    const emailSubject = registration.registrationType === 'PRE_ICDRA_ONLY'
+      ? 'Registration Confirmation - Pre-ICDRA Conference'
+      : 'Registration Confirmation - ICDRA Conference';
+
     await sendMail({
       to: registration.email,
-      subject: 'Registration Confirmation - Pre-ICDRA Conference',
+      subject: emailSubject,
       html: registrationConfirmationEmailTemplate(registration.firstName)
     });
 
+    const notificationSubject = registration.registrationType === 'PRE_ICDRA_ONLY'
+      ? 'New Registration - Application to Attend Pre-ICDRA'
+      : 'New Registration - Application to Attend ICDRA';
+
     await sendMail({
       to: 'alserhani2010@gmail.com',
-      subject: 'New Registration - Application to Attend Pre-ICDRA',
+      subject: notificationSubject,
       html: whoNotificationEmailTemplate(
         `${registration.firstName} ${registration.familyName}`,
+        registration.registrationType === 'PRE_ICDRA_ONLY' ? 'Pre-ICDRA' : 'ICDRA',
         registration.id,
         approveUrl,
         rejectUrl
@@ -81,22 +92,17 @@ export const createRegistration = async (req: Request, res: Response) => {
       message: 'Registration submitted successfully',
       registration: {
         id: registration.id,
+        email: registration.email,
         firstName: registration.firstName,
         familyName: registration.familyName,
-        email: registration.email,
-        registrationType: registration.registrationType,
-        createdAt: registration.createdAt
+        registrationType: registration.registrationType
       }
     });
   } catch (error: any) {
-    if (error.code === 'P2002') {
-      return res.status(409).json({ error: 'Registration with this email already exists' });
-    }
     console.error('Create registration error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
-
 
 export const updateRegistration = async (req: AuthenticatedRequest, res: Response) => {
   try {
@@ -123,40 +129,60 @@ export const makeDecision = async (req: AuthenticatedRequest, res: Response) => 
   try {
     const { id } = req.params;
     const { decision } = req.body;
-    const decisionBy = req.user?.userId;
-    const userType = req.user?.userType;
-
-    if (!decisionBy) {
-      return res.status(401).json({ error: 'User not authenticated' });
-    }
-
-    if (userType !== 'WHO') {
-      return res.status(403).json({ error: 'Only WHO users can approve or reject registrations' });
-    }
-
-    if (!decision || !Object.values(DecisionStatus).includes(decision)) {
-      return res.status(400).json({ error: 'Valid decision is required (APPROVED or REJECTED)' });
-    }
+    const decisionBy = req.user?.userId || '';
 
     const registration = await RegistrationService.makeDecision(id, decision, decisionBy);
 
     if (decision === 'APPROVED') {
       const referenceNumber = registration.id.substring(0, 8).toUpperCase();
+      const baseUrl = process.env.FRONTEND_URL || 'http://localhost:8080';
 
-      await sendMail({
-        to: registration.email,
-        subject: 'Registration Approved - Pre-ICDRA Conference',
-        html: registrationApprovalEmailTemplate(
+      const emailSubject = registration.registrationType === 'PRE_ICDRA_ONLY'
+        ? 'Registration Approved - Pre-ICDRA Conference'
+        : 'Registration Approved - ICDRA Conference';
+
+      let emailTemplate;
+      if (registration.registrationType === 'ICDRA_ONLY') {
+        emailTemplate = registrationApprovalIcdraOnlyEmailTemplate(
+          registration.firstName,
+          registration.familyName,
+          referenceNumber,
+          baseUrl
+        );
+      } else if (registration.registrationType === 'PRE_ICDRA_ONLY') {
+        emailTemplate = registrationApprovalPreIcdraOnlyEmailTemplate(
+          registration.firstName,
+          registration.familyName,
+          referenceNumber,
+          baseUrl
+        );
+      } else {
+        emailTemplate = registrationApprovalEmailTemplate(
           registration.firstName,
           registration.familyName,
           referenceNumber
-        )
-      });
-    } else if (decision === 'REJECTED') {
+        );
+      }
+
       await sendMail({
         to: registration.email,
-        subject: 'Registration Status - Pre-ICDRA Conference',
-        html: registrationRejectionEmailTemplate(registration.firstName)
+        subject: emailSubject,
+        html: emailTemplate
+      });
+    } else if (decision === 'REJECTED') {
+      let emailSubject;
+      if (registration.registrationType === 'PRE_ICDRA_ONLY') {
+        emailSubject = 'Registration Status - Pre-ICDRA Conference';
+      } else if (registration.registrationType === 'ICDRA_ONLY') {
+        emailSubject = 'Registration Status - ICDRA Conference';
+      } else {
+        emailSubject = 'Registration Status - ICDRA Conference';
+      }
+
+      await sendMail({
+        to: registration.email,
+        subject: emailSubject,
+        html: registrationRejectionEmailTemplate(registration.firstName, registration.registrationType)
       });
     }
 

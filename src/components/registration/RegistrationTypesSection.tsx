@@ -15,11 +15,6 @@ export const RegistrationTypesSection = ({ registrationType, onRegistrationTypeC
       description: "For non-regulators and all other interested participants. A small fee may apply. Regulators, national health ministry representatives, and UN agencies are exempt from the fee."
     },
     {
-      value: "combined",
-      title: "Pre-ICDRA and ICDRA combined",
-      description: "For regulators, representatives of national ministries of health, and selected development partners, including UN agencies."
-    },
-    {
       value: "icdra-only",
       title: "ICDRA only",
       description: "For the same categories as the combined option, but for those attending only the ICDRA meeting."

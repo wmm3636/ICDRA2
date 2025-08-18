@@ -5,19 +5,19 @@ import { Clock, MapPin, Users, Star, Quote } from "lucide-react";
 
 const Tours = () => {
   const tours = [
-    {
-      title: "The Edge of the World (Jebel Fihrayn)",
-      duration: "8 hours",
-      time: "7:00 AM - 3:00 PM",
-      capacity: "20 people",
-      price: "$140",
-      rating: 4.9,
-      highlights: ["Jebel Fihrayn Cliffs", "Panoramic Desert Views", "Ancient Caravan Routes", "Photography Opportunities"],
-      description: "One of Saudi's most popular tourist destinations, got its nickname from the uninterrupted view of the horizon, which overlook the surrounding plain. From the top of the cliffs, you'll spot dried rivers weaving across the land and may even see camels moving far below — an ancient caravan route once passed through these grounds.",
-      date: "October 16, 2026 (During Conference)",
-      difficulty: "Moderate",
-      travelTime: "90 minutes by car from Riyadh"
-    },
+    // {
+    //   title: "The Edge of the World (Jebel Fihrayn)",
+    //   duration: "8 hours",
+    //   time: "7:00 AM - 3:00 PM",
+    //   capacity: "20 people",
+    //   price: "$140",
+    //   rating: 4.9,
+    //   highlights: ["Jebel Fihrayn Cliffs", "Panoramic Desert Views", "Ancient Caravan Routes", "Photography Opportunities"],
+    //   description: "One of Saudi's most popular tourist destinations, got its nickname from the uninterrupted view of the horizon, which overlook the surrounding plain. From the top of the cliffs, you'll spot dried rivers weaving across the land and may even see camels moving far below — an ancient caravan route once passed through these grounds.",
+    //   date: "October 16, 2026 (During Conference)",
+    //   difficulty: "Moderate",
+    //   travelTime: "90 minutes by car from Riyadh"
+    // },
     {
       title: "Historic At-Turaif in Ad-Diriyah (UNESCO World Heritage Site)",
       duration: "5 hours",
@@ -53,31 +53,31 @@ const Tours = () => {
       description: "Visit the traditional market in the heart of Riyadh, about 5.4 km from Al-Murabba Historical Palace. The souq covers an area of 38,000 square meters and is one of Riyadh's oldest traditional markets that carries 100 years of history within its alleyways. Experience authentic Saudi culture and craftsmanship.",
       date: "October 16, 2026 (During Conference)",
       difficulty: "Easy"
-    },
-    {
-      title: "Modern Riyadh & Iconic Towers Tour",
-      duration: "6 hours",
-      time: "9:00 AM - 3:00 PM",
-      capacity: "35 people",
-      price: "$110",
-      rating: 4.8,
-      highlights: ["Kingdom Tower", "Al Faisaliah Tower", "King Abdullah Financial District", "Modern Architecture"],
-      description: "Discover the modern face of Riyadh with visits to iconic landmarks including the Kingdom Tower and Al Faisaliah Tower. Experience the transformation of Riyadh into a modern metropolis while learning about Saudi Arabia's Vision 2030.",
-      date: "October 17, 2026 (During Conference)",
-      difficulty: "Easy"
-    },
-    {
-      title: "Riyadh Shopping & Entertainment Experience",
-      duration: "5 hours",
-      time: "2:00 PM - 7:00 PM",
-      capacity: "25 people",
-      price: "$90",
-      rating: 4.5,
-      highlights: ["Riyadh Park Mall", "Granada Mall", "Via Riyadh", "Modern Shopping"],
-      description: "Experience modern Saudi lifestyle with visits to Riyadh's premier shopping destinations including Riyadh Park Mall, Granada Mall, and Via Riyadh. Enjoy contemporary dining, shopping, and entertainment facilities that showcase the kingdom's modern development.",
-      date: "October 18, 2026 (Post-Conference)",
-      difficulty: "Easy"
     }
+    // {
+    //   title: "Modern Riyadh & Iconic Towers Tour",
+    //   duration: "6 hours",
+    //   time: "9:00 AM - 3:00 PM",
+    //   capacity: "35 people",
+    //   price: "$110",
+    //   rating: 4.8,
+    //   highlights: ["Kingdom Tower", "Al Faisaliah Tower", "King Abdullah Financial District", "Modern Architecture"],
+    //   description: "Discover the modern face of Riyadh with visits to iconic landmarks including the Kingdom Tower and Al Faisaliah Tower. Experience the transformation of Riyadh into a modern metropolis while learning about Saudi Arabia's Vision 2030.",
+    //   date: "October 17, 2026 (During Conference)",
+    //   difficulty: "Easy"
+    // },
+    // {
+    //   title: "Riyadh Shopping & Entertainment Experience",
+    //   duration: "5 hours",
+    //   time: "2:00 PM - 7:00 PM",
+    //   capacity: "25 people",
+    //   price: "$90",
+    //   rating: 4.5,
+    //   highlights: ["Riyadh Park Mall", "Granada Mall", "Via Riyadh", "Modern Shopping"],
+    //   description: "Experience modern Saudi lifestyle with visits to Riyadh's premier shopping destinations including Riyadh Park Mall, Granada Mall, and Via Riyadh. Enjoy contemporary dining, shopping, and entertainment facilities that showcase the kingdom's modern development.",
+    //   date: "October 18, 2026 (Post-Conference)",
+    //   difficulty: "Easy"
+    // }
   ];
 
   const getDifficultyColor = (difficulty: string) => {
@@ -185,7 +185,7 @@ const Tours = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {/* Tour Details */}
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                  {/* <div className="flex flex-wrap gap-4 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-1" />
                       {tour.duration}
@@ -198,24 +198,24 @@ const Tours = () => {
                       <Star className="w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />
                       {tour.rating}
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Badges */}
-                  <div className="flex flex-wrap gap-2">
+                  {/* <div className="flex flex-wrap gap-2">
                     <Badge className={getDifficultyColor(tour.difficulty)}>
                       {tour.difficulty}
                     </Badge>
                     <Badge variant="outline">{tour.date}</Badge>
                     <Badge variant="outline">{tour.time}</Badge>
-                  </div>
+                  </div> */}
 
                   {/* Travel Time */}
-                  {tour.travelTime && (
+                  {/* {tour.travelTime && (
                     <div className="flex items-center text-sm text-gray-600">
                       <MapPin className="w-4 h-4 mr-1" />
                       {tour.travelTime}
                     </div>
-                  )}
+                  )} */}
 
                   {/* Description */}
                   <p className="text-gray-700">{tour.description}</p>

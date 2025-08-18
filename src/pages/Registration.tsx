@@ -72,7 +72,7 @@ const Registration = () => {
   const mapRegistrationType = (type: string) => {
     const typeMap: Record<string, string> = {
       'pre-icdra': 'PRE_ICDRA_ONLY',
-      'combined': 'PRE_ICDRA_AND_ICDRA_COMBINED',
+      // 'combined': 'PRE_ICDRA_AND_ICDRA_COMBINED',
       'icdra-only': 'ICDRA_ONLY'
     };
     return typeMap[type] || type;

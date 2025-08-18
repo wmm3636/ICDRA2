@@ -1,8 +1,16 @@
-
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Check } from "lucide-react";
+import { cn } from "@/lib/utils"; // utility for conditional classes
 
 interface ContactInfoSectionProps {
   formData: {
@@ -109,7 +117,6 @@ const countries = [
   { code: "+98", name: "Iran", flag: "🇮🇷" },
   { code: "+964", name: "Iraq", flag: "🇮🇶" },
   { code: "+353", name: "Ireland", flag: "🇮🇪" },
-  { code: "+972", name: "Israel", flag: "🇮🇱" },
   { code: "+39", name: "Italy", flag: "🇮🇹" },
   { code: "+1876", name: "Jamaica", flag: "🇯🇲" },
   { code: "+81", name: "Japan", flag: "🇯🇵" },
@@ -243,8 +250,8 @@ const countries = [
 ];
 
 export const ContactInfoSection = ({ formData, onInputChange }: ContactInfoSectionProps) => {
-  const selectedCountry = countries.find(country => 
-    formData.phoneCountry === `${country.code}-${country.name}`
+  const selectedCountry = countries.find(
+    (country) => formData.phoneCountry === `${country.code}-${country.name}`
   );
 
   return (
@@ -255,46 +262,73 @@ export const ContactInfoSection = ({ formData, onInputChange }: ContactInfoSecti
           id="email"
           type="email"
           value={formData.email}
-          onChange={(e) => onInputChange('email', e.target.value)}
+          onChange={(e) => onInputChange("email", e.target.value)}
           required
         />
       </div>
-      
+
       <div>
         <Label htmlFor="mobilePhone">Mobile Phone Number *</Label>
         <div className="flex gap-2">
-          <Select
-            value={formData.phoneCountry || ""}
-            onValueChange={(value) => onInputChange('phoneCountry', value)}
-            required
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Country code">
-                {selectedCountry && (
-                  <span>{selectedCountry.flag} {selectedCountry.code}</span>
+          {/* Searchable country selector */}
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                className="w-[200px] justify-between border rounded-md px-3 py-2 text-sm flex items-center"
+              >
+                {selectedCountry ? (
+                  <span>
+                    {selectedCountry.flag} {selectedCountry.code}
+                  </span>
+                ) : (
+                  <span className="text-muted-foreground">Select country</span>
                 )}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              {countries.map((country, index) => (
-                <SelectItem key={index} value={`${country.code}-${country.name}`}>
-                  {country.flag} {country.name} ({country.code})
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          
+              </button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[300px] p-0">
+              <Command>
+                <CommandInput placeholder="Search country..." />
+                <CommandList>
+                  <CommandEmpty>No country found.</CommandEmpty>
+                  <CommandGroup>
+                    {countries.map((country, index) => (
+                      <CommandItem
+                        key={index}
+                        value={`${country.code}-${country.name}`}
+                        onSelect={(value) => {
+                          onInputChange("phoneCountry", value);
+                        }}
+                      >
+                        <span className="flex items-center gap-2">
+                          {country.flag} {country.name} ({country.code})
+                        </span>
+                        {formData.phoneCountry === `${country.code}-${country.name}` && (
+                          <Check className="ml-auto h-4 w-4" />
+                        )}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+
           <Input
             id="mobilePhone"
             type="tel"
             value={formData.mobilePhone}
-            onChange={(e) => onInputChange('mobilePhone', e.target.value)}
+            onChange={(e) => onInputChange("mobilePhone", e.target.value)}
             disabled={!formData.phoneCountry}
-            placeholder={formData.phoneCountry ? "Enter your phone number" : "Select country code first"}
+            placeholder={
+              formData.phoneCountry
+                ? "Enter your phone number"
+                : "Select country code first"
+            }
             className="flex-1"
             required
           />
         </div>
+
         {!formData.phoneCountry && (
           <p className="text-sm text-muted-foreground mt-1">
             Please select your country code before entering your phone number
@@ -304,4 +338,3 @@ export const ContactInfoSection = ({ formData, onInputChange }: ContactInfoSecti
     </div>
   );
 };
-

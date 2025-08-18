@@ -1,11 +1,13 @@
-export const registrationRejectionEmailTemplate = (firstName: string): string => {
+export const registrationRejectionEmailTemplate = (firstName: string, registrationType?: string): string => {
+  const conferenceType = registrationType === 'PRE_ICDRA_ONLY' ? 'Pre ICDRA' : 'ICDRA';
+  
   return `
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registration Status - Pre-ICDRA Conference</title>
+        <title>Registration Status - ${conferenceType} Conference</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -51,7 +53,7 @@ export const registrationRejectionEmailTemplate = (firstName: string): string =>
             <div class="content">
                 <p><strong>Dear ${firstName}</strong></p>
                 
-                <p>We regret to inform you that your registration to attend the Pre ICDRA conference has been declined.</p>
+                <p>We regret to inform you that your registration to attend the ${conferenceType} conference has been declined.</p>
                 
                 <div class="contact-info">
                     <p><strong>Kind regards,</strong></p>

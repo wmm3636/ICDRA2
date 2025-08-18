@@ -356,7 +356,7 @@ const Programme = () => {
           </div>
         </div>
 
-        <Tabs value={selectedDay} onValueChange={setSelectedDay} className="w-full">
+        {/* <Tabs value={selectedDay} onValueChange={setSelectedDay} className="w-full">
           <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="day1">Day 1 - Apr 13</TabsTrigger>
             <TabsTrigger value="day2">Day 2 - Apr 14</TabsTrigger>
@@ -417,10 +417,10 @@ const Programme = () => {
               </Card>
             </TabsContent>
           ))}
-        </Tabs>
+        </Tabs> */}
 
         {/* Additional Information */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card>
             <CardHeader>
               <CardTitle>Session Types</CardTitle>
@@ -459,7 +459,7 @@ const Programme = () => {
               <p>• Detailed abstracts available in the downloadable programme</p>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </div>
   );

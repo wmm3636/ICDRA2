@@ -1,10 +1,11 @@
 export const whoNotificationEmailTemplate = (
-  attendeeName: string, 
-  registrationId: string,
-  approveUrl: string,
-  rejectUrl: string
+    attendeeName: string,
+    registrationType: string,
+    registrationId: string,
+    approveUrl: string,
+    rejectUrl: string
 ): string => {
-  return `
+    return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -120,7 +121,7 @@ export const whoNotificationEmailTemplate = (
                     <h3 style="margin-top: 0; color: #2c3e50;">Registration Details:</h3>
                     <ul style="list-style: none; padding: 0;">
                         <li><strong>• Attendee name:</strong> ${attendeeName}</li>
-                        <li><strong>• Event name:</strong> Pre-ICDRA</li>
+                        <li><strong>• Event name:</strong> ${registrationType}</li>
                     </ul>
                 </div>
                 

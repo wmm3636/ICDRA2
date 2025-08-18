@@ -1,11 +1,15 @@
-export const registrationConfirmationEmailTemplate = (firstName: string): string => {
+export const registrationConfirmationEmailTemplate = (firstName: string, registrationType?: string): string => {
+  const isPreIcdraOnly = registrationType === 'PRE_ICDRA_ONLY';
+  const conferenceTitle = isPreIcdraOnly ? 'Pre-ICDRA Conference' : 'ICDRA Conference';
+  const conferenceDate = isPreIcdraOnly ? '13 - 14 April 2026' : 'ICDRA 2026';
+  
   return `
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registration Confirmation - Pre-ICDRA Conference</title>
+        <title>Registration Confirmation - ${conferenceTitle}</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -60,26 +64,23 @@ export const registrationConfirmationEmailTemplate = (firstName: string): string
         <div class="container">
             <div class="header">
                 <h1 style="color: #2c3e50; margin-bottom: 10px;">Registration Confirmation</h1>
-                <h2 style="color: #34495e; font-weight: normal;">Pre-ICDRA Conference</h2>
+                <h2 style="color: #34495e; font-weight: normal;">${conferenceTitle}</h2>
             </div>
             
             <div class="content">
                 <p><strong>Dear ${firstName}</strong></p>
                 
-                <p>Thank you for applying to attend the Pre-ICDRA conference on the <strong>13 - 14 April 2026</strong>.</p>
+                <p>Thank you for applying to attend the ${conferenceTitle} ${isPreIcdraOnly ? `on the <strong>${conferenceDate}</strong>` : 'in Saudi Arabia 2026'}.</p>
                 
                 <div class="highlight">
-                    <p><strong>Your application is now being reviewed, and you will be notified soon in relation to the outcome.</strong></p>
+                    <p><strong>Your application is being reviewed and you will receive further details once a decision has been made regarding your registration.</strong></p>
                 </div>
                 
-                <p>If you have applied under the Industry / Non-Government category and if approved, you will be required to make payment and instructions on how to proceed with this will be included in the approval email.</p>
-                
-                <p>Please do not hesitate to contact us if you have any questions.</p>
+                <p>We appreciate your interest in participating in this important global health initiative.</p>
                 
                 <div class="contact-info">
-                    <p><strong>Kind regards</strong><br>
-                    Saudi Food and Drug Authority (SFDA)</p>
-                    
+                    <p><strong>Kind regards,</strong></p>
+                    <p><strong>Saudi Food and Drug Authority (SFDA)</strong></p>
                     <p><a href="mailto:icdra@sfda.gov.sa" style="color: #007bff;">icdra@sfda.gov.sa</a></p>
                 </div>
             </div>
@@ -88,6 +89,9 @@ export const registrationConfirmationEmailTemplate = (firstName: string): string
                 <div class="who-logo">
                     <img src="" alt="World Health Organization" />
                 </div>
+                <p style="text-align: center; margin-top: 15px;">
+                    This is an automated message. Please do not reply to this email directly.
+                </p>
             </div>
         </div>
     </body>
