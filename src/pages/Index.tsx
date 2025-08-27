@@ -69,7 +69,7 @@ const Index = () => {
               </div>
             </div>
             <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-emerald-100 leading-relaxed">
-              Strengthening regulatory systems worldwide for better health outcomes through international collaboration and harmonization
+              Building robust, resilient and reliable regulatory systems in the age of AI: Promoting innovation and timely delivery of quality assured medical products.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/registration">
