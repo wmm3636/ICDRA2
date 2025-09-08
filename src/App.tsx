@@ -39,13 +39,13 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               {/* <Route path="/general-info" element={<GeneralInfo />} /> */}
-              <Route path="/registration" element={<Registration />} />
+              {/* <Route path="/registration" element={<Registration />} /> */}
               <Route path="/programme" element={<Programme />} />
               <Route path="/presentations" element={<Presentations />} />
               <Route path="/venue" element={<Venue />} />
               {/* <Route path="/accommodation" element={<Accommodation />} /> */}
               <Route path="/travel" element={<Travel />} />
-              <Route path="/visa" element={<Visa />} />
+              {/* <Route path="/visa" element={<Visa />} /> */}
               <Route path="/tours" element={<Tours />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<SignIn />} />

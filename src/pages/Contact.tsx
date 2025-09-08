@@ -214,7 +214,7 @@ const Contact = () => {
                   </div>
                 </div> */}
 
-                <div className="flex items-start space-x-3">
+                {/* <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-blue-600 mt-1" />
                   <div>
                     <h4 className="font-semibold">Address</h4>
@@ -224,7 +224,7 @@ const Contact = () => {
                       Riyadh, Saudi Arabia
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start space-x-3">
                   <Clock className="w-5 h-5 text-blue-600 mt-1" />

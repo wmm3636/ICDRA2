@@ -86,7 +86,10 @@ const Footer = () => {
               </p> */}
               <p className="flex flex-col">
                 <span className="font-semibold text-white mb-1">Address:</span>
-                <span>Riyadh, Kingdom of Saudi Arabia</span>
+                <span>
+                  Crowne Plaza Riyadh RDC Hotel & Convention by IHG
+                  Wadi Al Muaydin Street, Unit 4, Imam Saud Ibn Abdul Aziz Road, Riyadh 12382
+                </span>
               </p>
             </div>
           </div>

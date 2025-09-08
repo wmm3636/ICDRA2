@@ -11,13 +11,13 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     // { name: "General Information", path: "/general-info" },
-    { name: "Registration", path: "/registration" },
+    // { name: "Registration", path: "/registration" },
     { name: "Programme", path: "/programme" },
     { name: "Presentations", path: "/presentations" },
     { name: "Venue", path: "/venue" },
     // { name: "Accommodation", path: "/accommodation" },
     { name: "Travel", path: "/travel" },
-    { name: "Visa", path: "/visa" },
+    // { name: "Visa", path: "/visa" },
     { name: "Tours", path: "/tours" },
     { name: "Contact", path: "/contact" },
   ];
