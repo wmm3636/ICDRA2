@@ -24,7 +24,7 @@ export const RegistrationTypesSection = ({ registrationType, onRegistrationTypeC
   return (
     <div>
       <Label className="text-base font-semibold mb-4 block">Registration Type *</Label>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {registrationTypes.map((type) => (
           <RegistrationTypeCard
             key={type.value}

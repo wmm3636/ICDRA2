@@ -174,10 +174,10 @@ const Visa = () => {
                 <CardTitle>Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button className="w-full bg-blue-900 hover:bg-blue-800">
+                {/* <Button className="w-full bg-blue-900 hover:bg-blue-800">
                   <FileText className="w-4 h-4 mr-2" />
                   Request Invitation Letter
-                </Button>
+                </Button> */}
                 <Button
                   variant="outline"
                   className="w-full"

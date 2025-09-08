@@ -95,7 +95,7 @@ const Presentations = () => {
             Conference Presentations
           </h1>
           <p className="text-lg text-gray-600">
-            Access presentations, recordings, and resources from ICDRA 2026
+            Presentations will be available after the conference, exclusively for in-person attendees.
           </p>
         </div>
 
