@@ -7,6 +7,28 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, User, Download } from "lucide-react";
 
 const Programme = () => {
+  const handleDownloadFullProgram = async () => {
+    try {
+      const response = await fetch('/api/download/full-program');
+
+      if (!response.ok) {
+        throw new Error('Failed to download full program');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ICDRA2026.pdf';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Error downloading full program:', error);
+    }
+  };
+
   const [selectedDay, setSelectedDay] = useState("day1");
 
   const programme = {
@@ -348,7 +370,10 @@ const Programme = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button className="bg-blue-900 hover:bg-blue-800">
+            <Button
+              className="bg-blue-900 hover:bg-blue-800"
+              onClick={handleDownloadFullProgram}
+            >
               <Download className="w-4 h-4 mr-2" />
               Download Full Programme (PDF)
             </Button>
@@ -358,6 +383,11 @@ const Programme = () => {
             </Button>
           </div>
         </div>
+        <img
+          src="/ICDRA2026.jpg"
+          alt="Conference Programme Overview"
+          className="w-full h-auto object-cover mt-8"
+        />
 
         {/* <Tabs value={selectedDay} onValueChange={setSelectedDay} className="w-full">
           <TabsList className="grid w-full grid-cols-5">

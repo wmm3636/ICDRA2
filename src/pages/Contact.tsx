@@ -231,7 +231,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold">Business Hours</h4>
                     <p className="text-gray-600">
-                      Sunday - Thursday: 8:00 AM - 5:00 PM<br />
+                      Sunday - Thursday: 19:00 - 21:00<br />
                       (GMT+3, Riyadh Time)
                     </p>
                   </div>

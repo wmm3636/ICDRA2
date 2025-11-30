@@ -1,17 +1,18 @@
 import { Router } from 'express';
-import {  signIn,  verifyCode } from '../handlers/auth';
-import { changePassword,createUser, deleteUser, getUserById, getUsers, getCurrentUser, updateUser, updateCurrentUser } from '../handlers/user';
+import { signIn, verifyCode } from '../handlers/auth';
+import { changePassword, createUser, deleteUser, getUserById, getUsers, getCurrentUser, updateUser, updateCurrentUser } from '../handlers/user';
 import { downloadVisaForm } from '../handlers/download';
-import { 
-  getRegistrations, 
-  getRegistrationById, 
-  createRegistration, 
-  updateRegistration, 
-  makeDecision, 
+import { downloadFullProgram } from '../handlers/downloadFullProgram';
+import {
+  getRegistrations,
+  getRegistrationById,
+  createRegistration,
+  updateRegistration,
+  makeDecision,
   deleteRegistration,
-  getRegistrationStats 
+  getRegistrationStats
 } from '../handlers/registration';
-import { 
+import {
   getContactRequests,
   getContactRequestById,
   createContactRequest,
@@ -21,11 +22,11 @@ import {
 } from '../handlers/contact';
 import { validateBody, validateQuery } from '../middleware/validation';
 import { authenticate, authorize } from '../middleware/auth';
-import { 
-  signInSchema, 
-  verifyCodeSchema, 
-  createUserSchema, 
-  updateUserSchema, 
+import {
+  signInSchema,
+  verifyCodeSchema,
+  createUserSchema,
+  updateUserSchema,
   getUsersQuerySchema,
   createRegistrationSchema,
   updateRegistrationSchema,
@@ -74,6 +75,7 @@ router.patch('/contact/:id/status', authenticate, authorize([UserType.ADMIN, Use
 router.delete('/contact/:id', authenticate, authorize([UserType.ADMIN, UserType.INTERNAL]), deleteContactRequest);
 
 router.get('/download/visa-form', downloadVisaForm);
+router.get('/download/full-program', downloadFullProgram);
 
 export default router;
 

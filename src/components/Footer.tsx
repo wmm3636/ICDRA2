@@ -14,10 +14,10 @@ const Footer = () => {
                 alt="ICDRA 2026 Logo"
                 className="h-12 w-auto"
               />
-              <div>
+              {/* <div>
                 <div className="text-white font-bold text-xl">ICDRA 2026</div>
                 <div className="text-gray-300">Saudi Arabia</div>
-              </div>
+              </div> */}
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed text-lg">
               The 20th International Conference of Drug Regulatory Authorities, hosted in the Kingdom of Saudi Arabia.

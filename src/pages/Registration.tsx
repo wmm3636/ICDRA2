@@ -240,6 +240,67 @@ const Registration = () => {
                 </Label>
               </div>
 
+              {/* Question 1: Cultural & Heritage Tour */}
+              <div className="mt-4">
+                <Label className="text-sm">
+                  Would you be interested in joining the cultural and heritage tours offered
+                  in Riyadh, the capital of the Kingdom of Saudi Arabia?
+                </Label>
+                <div className="flex space-x-4 mt-1">
+                  <label className="flex items-center space-x-1">
+                    <input
+                      type="radio"
+                      name="culturalTour"
+                      value="yes"
+                      // checked={formData.culturalTour === "yes"}
+                      onChange={() => handleInputChange("culturalTour", "yes")}
+                      required
+                    />
+                    <span>Yes</span>
+                  </label>
+                  <label className="flex items-center space-x-1">
+                    <input
+                      type="radio"
+                      name="culturalTour"
+                      value="no"
+                      // checked={formData.culturalTour === "no"}
+                      onChange={() => handleInputChange("culturalTour", "no")}
+                    />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Question 2: Visa Support Letter */}
+              <div className="mt-4">
+                <Label className="text-sm">
+                  Do you require an official visa support letter to attend the event?
+                </Label>
+                <div className="flex space-x-4 mt-1">
+                  <label className="flex items-center space-x-1">
+                    <input
+                      type="radio"
+                      name="visaLetter"
+                      value="yes"
+                      // checked={formData.visaLetter === "yes"}
+                      onChange={() => handleInputChange("visaLetter", "yes")}
+                      required
+                    />
+                    <span>Yes</span>
+                  </label>
+                  <label className="flex items-center space-x-1">
+                    <input
+                      type="radio"
+                      name="visaLetter"
+                      value="no"
+                      // checked={formData.visaLetter === "no"}
+                      onChange={() => handleInputChange("visaLetter", "no")}
+                    />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+
               <Button
                 type="submit"
                 size="lg"

@@ -15,7 +15,7 @@ const Navbar = () => {
     { name: "Programme", path: "/programme" },
     { name: "Presentations", path: "/presentations" },
     { name: "Venue", path: "/venue" },
-    // { name: "Accommodation", path: "/accommodation" },
+    { name: "Accommodation", path: "/accommodation" },
     { name: "Travel", path: "/travel" },
     // { name: "Visa", path: "/visa" },
     { name: "Tours", path: "/tours" },
@@ -37,7 +37,7 @@ const Navbar = () => {
               />
             </div>
             <div className="text-center">
-              <div className="text-emerald-700 font-bold text-sm leading-tight">ICDRA 2026 Saudi Arabia</div>
+              {/* <div className="text-emerald-700 font-bold text-sm leading-tight">ICDRA 2026 Saudi Arabia</div> */}
             </div>
           </Link>
 

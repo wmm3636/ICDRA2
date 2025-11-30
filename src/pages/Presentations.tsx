@@ -100,7 +100,7 @@ const Presentations = () => {
         </div>
 
         {/* Search and Filter */}
-        <Card className="mb-8">
+        {/* <Card className="mb-8">
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
@@ -139,10 +139,10 @@ const Presentations = () => {
               </div>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* Materials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {materials.map((material, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
@@ -181,44 +181,44 @@ const Presentations = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
 
         {/* Bulk Download Options */}
-        <Card>
-          <CardHeader>
+        {/* <Card> */}
+        {/* <CardHeader>
             <CardTitle>Bulk Download Options</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center p-4 border rounded-lg">
+          </CardHeader> */}
+        {/* <CardContent> */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> */}
+        {/* <div className="text-center p-4 border rounded-lg">
                 <FileText className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                 <h4 className="font-semibold mb-2">All Presentations</h4>
                 <p className="text-sm text-gray-600 mb-3">Complete collection of presentation slides</p>
                 <Button variant="outline" size="sm">
                   Download ZIP (12.4 MB)
                 </Button>
-              </div>
+              </div> */}
 
-              <div className="text-center p-4 border rounded-lg">
+        {/* <div className="text-center p-4 border rounded-lg">
                 <Video className="w-8 h-8 text-red-600 mx-auto mb-2" />
                 <h4 className="font-semibold mb-2">Session Recordings</h4>
-                <p className="text-sm text-gray-600 mb-3">no recording</p>
-                {/* <Button variant="outline" size="sm">
+                <p className="text-sm text-gray-600 mb-3">no recording</p> */}
+        {/* <Button variant="outline" size="sm">
                   Access Portal
                 </Button> */}
-              </div>
+        {/* </div> */}
 
-              <div className="text-center p-4 border rounded-lg">
+        {/* <div className="text-center p-4 border rounded-lg">
                 <File className="w-8 h-8 text-green-600 mx-auto mb-2" />
                 <h4 className="font-semibold mb-2">Complete Package</h4>
                 <p className="text-sm text-gray-600 mb-3">All materials and resources</p>
                 <Button variant="outline" size="sm">
                   Download All (156 MB)
                 </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+              </div> */}
+        {/* </div> */}
+        {/* </CardContent> */}
+        {/* </Card> */}
 
         {/* Access Information */}
         <Card className="mt-8">
